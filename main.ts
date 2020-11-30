@@ -1,18 +1,13 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    if (clock < NOON) {
-        clock += 1
-    }
+    clock += 1
 })
-let NOON = 0
 let clock = 0
 radio.setGroup(1)
-clock = 1
-NOON = 8
 basic.forever(function () {
-    if (clock >= NOON) {
+    if (clock >= 2) {
         radio.sendNumber(0)
         game.addScore(1)
-        basic.pause(2000)
+        basic.pause(200)
         clock = 0
     } else {
         basic.pause(100)
